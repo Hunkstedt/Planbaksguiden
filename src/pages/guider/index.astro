@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+const guides = Object.values(import.meta.glob('./*.md', { eager: true }));
+---
+<Base title="Alla guider">
+  <h1>Alla guider</h1>
+  <ul>
+    {guides.map((g) => <li><a href={g.url}>{g.frontmatter.title}</a></li>)}
+  </ul>
+</Base>

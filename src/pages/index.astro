@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+const guides = Object.values(import.meta.glob('./guider/*.md', { eager: true }));
+---
+<Base>
+  <h1>Smartare val för din privatekonomi</h1>
+  <p>Vi förklarar hur sparkonton, elavtal och lån fungerar, så att du kan jämföra själv och välja det som passar dig.</p>
+  <h2>Senaste guiderna</h2>
+  <ul>
+    {guides.map((g) => <li><a href={g.url}>{g.frontmatter.title}</a> – {g.frontmatter.description}</li>)}
+  </ul>
+</Base>
